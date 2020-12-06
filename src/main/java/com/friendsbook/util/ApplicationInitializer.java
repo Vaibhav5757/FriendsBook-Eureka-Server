@@ -27,6 +27,8 @@ public class ApplicationInitializer implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
+		logger.info("Application Started - Now running application initialization logic");
+		
 		try {
 			
 			logger.info(userServiceUrl);
