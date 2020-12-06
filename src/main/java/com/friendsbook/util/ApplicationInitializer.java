@@ -1,5 +1,7 @@
 package com.friendsbook.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
@@ -19,15 +21,22 @@ public class ApplicationInitializer implements CommandLineRunner{
 	@Value("${external-service-url.front-end}")
 	private String frontEndSvcUrl;
 	
+	private Logger logger = LoggerFactory.getLogger(ApplicationInitializer.class);
+	
 
 	@Override
 	public void run(String... args) throws Exception {
-
-		// wake up user Service
-		this.http.exchange(userServiceUrl, HttpMethod.GET, null, Object.class);
 		
+		logger.info(userServiceUrl);
+		logger.info(frontEndSvcUrl);
+		
+		logger.info("Trying to wake up User Service");
+		// wake up user Service
+		this.http.exchange(userServiceUrl + "/wake-up", HttpMethod.GET, null, String.class);
+		
+		logger.info("Trying to wake up Front End Service");
 		// wake up front end Service
-		this.http.exchange(frontEndSvcUrl, HttpMethod.GET, null, Object.class);
+		this.http.exchange(frontEndSvcUrl+ "/wake-up", HttpMethod.GET, null, String.class);
 	}
 
 }
