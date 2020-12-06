@@ -27,16 +27,21 @@ public class ApplicationInitializer implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		logger.info(userServiceUrl);
-		logger.info(frontEndSvcUrl);
-		
-		logger.info("Trying to wake up User Service");
-		// wake up user Service
-		this.http.exchange(userServiceUrl + "/wake-up", HttpMethod.GET, null, String.class);
-		
-		logger.info("Trying to wake up Front End Service");
-		// wake up front end Service
-		this.http.exchange(frontEndSvcUrl+ "/wake-up", HttpMethod.GET, null, String.class);
+		try {
+			
+			logger.info(userServiceUrl);
+			logger.info(frontEndSvcUrl);
+			
+			logger.info("Trying to wake up User Service");
+			// wake up user Service
+			this.http.exchange(userServiceUrl + "/wake-up", HttpMethod.GET, null, String.class);
+			
+			logger.info("Trying to wake up Front End Service");
+			// wake up front end Service
+			this.http.exchange(frontEndSvcUrl+ "/wake-up", HttpMethod.GET, null, String.class);
+		}catch(Exception ex) {
+			logger.error(ex.getMessage());
+		}
 	}
 
 }
