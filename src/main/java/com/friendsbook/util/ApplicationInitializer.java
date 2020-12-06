@@ -18,9 +18,11 @@ public class ApplicationInitializer implements CommandLineRunner{
 	
 	@Value("${external-service-url.front-end}")
 	private String frontEndSvcUrl;
+	
 
 	@Override
 	public void run(String... args) throws Exception {
+
 		// wake up user Service
 		this.http.exchange(userServiceUrl, HttpMethod.GET, null, Object.class);
 		
