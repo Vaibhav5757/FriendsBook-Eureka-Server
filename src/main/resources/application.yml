@@ -1,0 +1,3 @@
+external-service-url:
+  front-end: ${FRONT-END-SERVICE-URL}
+  user-service: ${USER-SERVICE-URL}
