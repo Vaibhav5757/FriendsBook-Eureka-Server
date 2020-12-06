@@ -12,11 +12,11 @@ import com.friendsbook.functional.UserServiceClient;
 @Component
 public class ApplicationInitializer implements CommandLineRunner{
 	
-	@Value("${external-service-url.user-service}")
-	private String userServiceUrl;
-	
-	@Value("${external-service-url.front-end}")
-	private String frontEndSvcUrl;
+//	@Value("${external-service-url.user-service}")
+//	private String userServiceUrl;
+//	
+//	@Value("${external-service-url.front-end}")
+//	private String frontEndSvcUrl;
 	
 	@Autowired
 	private UserServiceClient userClient;

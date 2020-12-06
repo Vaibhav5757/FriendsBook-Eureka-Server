@@ -1,3 +1,6 @@
-external-service-url:
-  front-end: ${FRONT-END-SERVICE-URL}
-  user-service: ${USER-SERVICE-URL}
+external-user-service:
+  ribbon:
+    listOfServers: ${USER-SERVICE-URL}
+external-front-end-service:
+  ribbon:
+    listOfServers: ${FRONT-END-SERVICE-URL}
