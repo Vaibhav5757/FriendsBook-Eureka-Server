@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import com.friendsbook.functional.FrontEndServiceClient;
 import com.friendsbook.functional.UserServiceClient;
 
 @Component
@@ -14,6 +15,9 @@ public class ApplicationInitializer implements CommandLineRunner{
 	
 	@Autowired
 	private UserServiceClient userClient;
+	
+	@Autowired
+	private FrontEndServiceClient frSvcClient;
 	
 	private Logger logger = LoggerFactory.getLogger(ApplicationInitializer.class);
 
@@ -24,6 +28,9 @@ public class ApplicationInitializer implements CommandLineRunner{
 			String resp =  this.userClient.wakeUp();
 			if(resp != null)
 				logger.info("User Service woke up");
+			resp = this.frSvcClient.wakeUp();
+			if(resp != null)
+				logger.info("Front End Service woke up");
 		}catch (Exception err) {
 			logger.error(err.getMessage());
 		}
