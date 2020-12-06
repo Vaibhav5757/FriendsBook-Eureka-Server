@@ -6,6 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient(url = "${external-user-service.ribbon.listOfServers}", name = "User-Service")
 public interface UserServiceClient {
 
-	@GetMapping("/wake-up")
+	@GetMapping("/wake-up/")
 	public String wakeUp();
 }
