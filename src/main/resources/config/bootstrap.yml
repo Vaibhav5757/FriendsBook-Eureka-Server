@@ -1,9 +1,6 @@
 spring:
   application:
     name: Eureka-Server
-  profiles:
-    active:
-    - dev
   cloud:
     config:
       uri:
