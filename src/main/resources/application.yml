@@ -4,3 +4,6 @@ external-user-service:
 external-front-end-service:
   ribbon:
     listOfServers: ${FRONT-END-SERVICE-URL}
+eureka:
+  instance:
+    hostname: ${APP_NAME}.herokuapp.com
