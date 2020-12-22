@@ -1,9 +1,9 @@
 external-user-service:
   ribbon:
-    listOfServers: ${USER-SERVICE-URL}
+    listOfServers: ${USER-SERVICE-URL:http://localhost:8888}
 external-front-end-service:
   ribbon:
-    listOfServers: ${FRONT-END-SERVICE-URL}
+    listOfServers: ${FRONT-END-SERVICE-URL:http://localhost:8081}
 eureka:
   instance:
-    hostname: ${APP_NAME}.herokuapp.com
+    hostname: ${DOMAIN_NAME:localhost}
